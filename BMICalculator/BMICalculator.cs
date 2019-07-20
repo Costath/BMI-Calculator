@@ -12,9 +12,23 @@ namespace BMICalculator
 {
     public partial class BMICalculatorForm : Form
     {
+        // holds the actual TextBox selected for input (HeightTextBox or WeightTextBox)
         TextBox selectedTextBox;
         // decimalPresent controls the presence of a '.' in the BMITextBox.Text
         bool decimalPresent = false;
+
+        private void ResetScaleColors()
+        {
+            UnderweightLabel1.BackColor = SystemColors.Control;
+            UnderweightLabel2.BackColor = SystemColors.Control;
+            NormalLabel1.BackColor = SystemColors.Control;
+            NormalLabel2.BackColor = SystemColors.Control;
+            OverweightLabel1.BackColor = SystemColors.Control;
+            OverweightLabel2.BackColor = SystemColors.Control;
+            ObeseLabel1.BackColor = SystemColors.Control;
+            ObeseLabel2.BackColor = SystemColors.Control;
+        }
+
         public BMICalculatorForm()
         {
             InitializeComponent();
@@ -125,31 +139,48 @@ namespace BMICalculator
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
             double BMI;
-            //if (CalculateBMIButton.Text == "Reset")
-            //{
-            //    BMITextBox.Text = "";
-            //    BMITextBox.Font = new Font("Microsoft Sans Serif", 20);
-            //    CalculateBMIButton.Text = "Calculate BMI";
-            //    HeightTextBox.Text = "";
-            //    WeightTextBox.Text = "";
-            //}
 
+            BMITextBox.Font = new Font("Microsoft Sans Serif", 20);
             try
             {
                 BMI = double.Parse(WeightTextBox.Text) / Math.Pow(double.Parse(HeightTextBox.Text), 2.0);
+
                 if (ImperialRadioButton.Checked)
                 {
                     BMI *= 703;
                 }
+
+                ResetScaleColors();
+                if (BMI < 18.5)
+                {
+                    UnderweightLabel1.BackColor = Color.LightCoral;
+                    UnderweightLabel2.BackColor = Color.LightCoral;
+                }
+                else if (BMI >= 18.5 && BMI <= 24.9)
+                {
+                    NormalLabel1.BackColor = Color.LawnGreen;
+                    NormalLabel2.BackColor = Color.LawnGreen;
+                }
+                else if (BMI >= 25 && BMI <= 29.9)
+                {
+                    OverweightLabel1.BackColor = Color.LightCoral;
+                    OverweightLabel2.BackColor = Color.LightCoral;
+                }
+                else if (BMI >= 30)
+                {
+                    ObeseLabel1.BackColor = Color.LightCoral;
+                    ObeseLabel2.BackColor = Color.LightCoral;
+                }
+
                 BMITextBox.Text = BMI.ToString("f1");
                 ButtonsTableLayoutPanel.Visible = false;
                 BMIScaleTableLayoutPanel.Visible = true;
+
             }
             catch (FormatException)
             {
                 BMITextBox.Font = new Font("Microsoft Sans Serif", 11);
                 BMITextBox.Text = "Invalid values";
-            //    CalculateBMIButton.Text = "Reset";
             }
             catch (Exception)
             {
@@ -175,14 +206,53 @@ namespace BMICalculator
 
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            HeightUnit.Text = "in";
-            WeightUnit.Text = "lb";
+            if (ImperialRadioButton.Checked)
+            {
+                HeightUnit.Text = "in";
+                WeightUnit.Text = "lb";
+
+                try
+                {
+                    HeightTextBox.Text = $"{double.Parse(HeightTextBox.Text) * 39.37:f2}";
+                    WeightTextBox.Text = $"{double.Parse(WeightTextBox.Text) * 2.20462:f2}";
+                }
+                catch (FormatException)
+                {
+                    HeightTextBox.Text = "";
+                    WeightTextBox.Text = "";
+                    decimalPresent = false;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
         }
 
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            HeightUnit.Text = "m";
-            WeightUnit.Text = "kg";
+            if (MetricRadioButton.Checked)
+            {
+                HeightUnit.Text = "m";
+                WeightUnit.Text = "kg";
+                try
+                {
+                    HeightTextBox.Text = $"{double.Parse(HeightTextBox.Text) / 39.37:f2}";
+                    WeightTextBox.Text = $"{double.Parse(WeightTextBox.Text) / 2.20462:f2}";
+                }
+                catch (FormatException)
+                {
+                    HeightTextBox.Text = "";
+                    WeightTextBox.Text = "";
+                    decimalPresent = false;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
         }
     }
 }

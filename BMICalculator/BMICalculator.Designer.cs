@@ -52,16 +52,16 @@
             this.WeightUnit = new System.Windows.Forms.Label();
             this.BMITextBox = new System.Windows.Forms.TextBox();
             this.BMIScaleTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ObeseLabel1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.NormalLabel2 = new System.Windows.Forms.Label();
+            this.OverweightLabel2 = new System.Windows.Forms.Label();
+            this.UnderweightLabel2 = new System.Windows.Forms.Label();
+            this.ObeseLabel2 = new System.Windows.Forms.Label();
+            this.OverweightLabel1 = new System.Windows.Forms.Label();
+            this.NormalLabel1 = new System.Windows.Forms.Label();
+            this.UnderweightLabel1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.ButtonsTableLayoutPanel.SuspendLayout();
             this.BMIScaleTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -281,7 +281,7 @@
             // 
             // CalculateBMIButton
             // 
-            this.CalculateBMIButton.Location = new System.Drawing.Point(56, 142);
+            this.CalculateBMIButton.Location = new System.Drawing.Point(51, 142);
             this.CalculateBMIButton.Name = "CalculateBMIButton";
             this.CalculateBMIButton.Size = new System.Drawing.Size(203, 43);
             this.CalculateBMIButton.TabIndex = 8;
@@ -311,7 +311,7 @@
             // 
             this.BMITextBox.BackColor = System.Drawing.SystemColors.Window;
             this.BMITextBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.BMITextBox.Location = new System.Drawing.Point(104, 191);
+            this.BMITextBox.Location = new System.Drawing.Point(104, 187);
             this.BMITextBox.Name = "BMITextBox";
             this.BMITextBox.ReadOnly = true;
             this.BMITextBox.Size = new System.Drawing.Size(95, 38);
@@ -321,33 +321,141 @@
             // BMIScaleTableLayoutPanel
             // 
             this.BMIScaleTableLayoutPanel.ColumnCount = 2;
-            this.BMIScaleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.BMIScaleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.BMIScaleTableLayoutPanel.Controls.Add(this.label6, 0, 4);
+            this.BMIScaleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47F));
+            this.BMIScaleTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53F));
+            this.BMIScaleTableLayoutPanel.Controls.Add(this.ObeseLabel1, 0, 4);
             this.BMIScaleTableLayoutPanel.Controls.Add(this.label5, 1, 0);
-            this.BMIScaleTableLayoutPanel.Controls.Add(this.label7, 1, 2);
-            this.BMIScaleTableLayoutPanel.Controls.Add(this.label8, 1, 3);
-            this.BMIScaleTableLayoutPanel.Controls.Add(this.label10, 1, 1);
-            this.BMIScaleTableLayoutPanel.Controls.Add(this.label2, 0, 4);
-            this.BMIScaleTableLayoutPanel.Controls.Add(this.label3, 0, 3);
-            this.BMIScaleTableLayoutPanel.Controls.Add(this.label4, 0, 2);
-            this.BMIScaleTableLayoutPanel.Controls.Add(this.label9, 0, 1);
+            this.BMIScaleTableLayoutPanel.Controls.Add(this.NormalLabel2, 1, 2);
+            this.BMIScaleTableLayoutPanel.Controls.Add(this.OverweightLabel2, 1, 3);
+            this.BMIScaleTableLayoutPanel.Controls.Add(this.UnderweightLabel2, 1, 1);
+            this.BMIScaleTableLayoutPanel.Controls.Add(this.ObeseLabel2, 0, 4);
+            this.BMIScaleTableLayoutPanel.Controls.Add(this.OverweightLabel1, 0, 3);
+            this.BMIScaleTableLayoutPanel.Controls.Add(this.NormalLabel1, 0, 2);
+            this.BMIScaleTableLayoutPanel.Controls.Add(this.UnderweightLabel1, 0, 1);
             this.BMIScaleTableLayoutPanel.Controls.Add(this.label1, 0, 0);
-            this.BMIScaleTableLayoutPanel.Location = new System.Drawing.Point(0, 260);
+            this.BMIScaleTableLayoutPanel.Location = new System.Drawing.Point(0, 231);
             this.BMIScaleTableLayoutPanel.Name = "BMIScaleTableLayoutPanel";
             this.BMIScaleTableLayoutPanel.RowCount = 5;
-            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.BMIScaleTableLayoutPanel.Size = new System.Drawing.Size(303, 181);
+            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.01618F));
+            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.40618F));
+            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.78072F));
+            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.78072F));
+            this.BMIScaleTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.01619F));
+            this.BMIScaleTableLayoutPanel.Size = new System.Drawing.Size(303, 210);
             this.BMIScaleTableLayoutPanel.TabIndex = 13;
             this.BMIScaleTableLayoutPanel.Visible = false;
+            // 
+            // ObeseLabel1
+            // 
+            this.ObeseLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ObeseLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.ObeseLabel1.Location = new System.Drawing.Point(3, 175);
+            this.ObeseLabel1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 3);
+            this.ObeseLabel1.Name = "ObeseLabel1";
+            this.ObeseLabel1.Size = new System.Drawing.Size(139, 32);
+            this.ObeseLabel1.TabIndex = 15;
+            this.ObeseLabel1.Text = "Obese";
+            this.ObeseLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label5.Location = new System.Drawing.Point(142, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(158, 33);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Result";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NormalLabel2
+            // 
+            this.NormalLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NormalLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.NormalLabel2.Location = new System.Drawing.Point(142, 67);
+            this.NormalLabel2.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.NormalLabel2.Name = "NormalLabel2";
+            this.NormalLabel2.Size = new System.Drawing.Size(158, 54);
+            this.NormalLabel2.TabIndex = 11;
+            this.NormalLabel2.Text = "between 18.5 and 24.9";
+            this.NormalLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // OverweightLabel2
+            // 
+            this.OverweightLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.OverweightLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.OverweightLabel2.Location = new System.Drawing.Point(142, 121);
+            this.OverweightLabel2.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.OverweightLabel2.Name = "OverweightLabel2";
+            this.OverweightLabel2.Size = new System.Drawing.Size(158, 54);
+            this.OverweightLabel2.TabIndex = 12;
+            this.OverweightLabel2.Text = "between 25 and 29.9";
+            this.OverweightLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // UnderweightLabel2
+            // 
+            this.UnderweightLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UnderweightLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.UnderweightLabel2.Location = new System.Drawing.Point(142, 33);
+            this.UnderweightLabel2.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.UnderweightLabel2.Name = "UnderweightLabel2";
+            this.UnderweightLabel2.Size = new System.Drawing.Size(158, 34);
+            this.UnderweightLabel2.TabIndex = 14;
+            this.UnderweightLabel2.Text = "less than 18.5";
+            this.UnderweightLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ObeseLabel2
+            // 
+            this.ObeseLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ObeseLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.ObeseLabel2.Location = new System.Drawing.Point(142, 175);
+            this.ObeseLabel2.Margin = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.ObeseLabel2.Name = "ObeseLabel2";
+            this.ObeseLabel2.Size = new System.Drawing.Size(158, 32);
+            this.ObeseLabel2.TabIndex = 6;
+            this.ObeseLabel2.Text = "30 or greater";
+            this.ObeseLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // OverweightLabel1
+            // 
+            this.OverweightLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.OverweightLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.OverweightLabel1.Location = new System.Drawing.Point(3, 121);
+            this.OverweightLabel1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.OverweightLabel1.Name = "OverweightLabel1";
+            this.OverweightLabel1.Size = new System.Drawing.Size(139, 54);
+            this.OverweightLabel1.TabIndex = 7;
+            this.OverweightLabel1.Text = "Overweight";
+            this.OverweightLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NormalLabel1
+            // 
+            this.NormalLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NormalLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.NormalLabel1.Location = new System.Drawing.Point(3, 67);
+            this.NormalLabel1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.NormalLabel1.Name = "NormalLabel1";
+            this.NormalLabel1.Size = new System.Drawing.Size(139, 54);
+            this.NormalLabel1.TabIndex = 8;
+            this.NormalLabel1.Text = "Normal";
+            this.NormalLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // UnderweightLabel1
+            // 
+            this.UnderweightLabel1.BackColor = System.Drawing.SystemColors.Control;
+            this.UnderweightLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UnderweightLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.UnderweightLabel1.Location = new System.Drawing.Point(3, 33);
+            this.UnderweightLabel1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.UnderweightLabel1.Name = "UnderweightLabel1";
+            this.UnderweightLabel1.Size = new System.Drawing.Size(139, 34);
+            this.UnderweightLabel1.TabIndex = 13;
+            this.UnderweightLabel1.Text = "Underweight";
+            this.UnderweightLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -356,104 +464,12 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 36);
+            this.label1.Size = new System.Drawing.Size(139, 33);
             this.label1.TabIndex = 5;
             this.label1.Text = "BMI Scale";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label2.Location = new System.Drawing.Point(154, 144);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 37);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "30 or greater";
-            // 
-            // label3
-            // 
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label3.Location = new System.Drawing.Point(3, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 36);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Overweight";
-            // 
-            // label4
-            // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label4.Location = new System.Drawing.Point(3, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 36);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Obese";
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(154, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 36);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Result";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label7.Location = new System.Drawing.Point(154, 72);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(146, 36);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "between 18.5 and 24.9";
-            // 
-            // label8
-            // 
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label8.Location = new System.Drawing.Point(154, 108);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(146, 36);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "between 25 and 29.9";
-            // 
-            // label9
-            // 
-            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label9.Location = new System.Drawing.Point(3, 36);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(145, 36);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Underweight";
-            // 
-            // label10
-            // 
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label10.Location = new System.Drawing.Point(154, 36);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(146, 36);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "less than 18.5";
-            // 
-            // label6
-            // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label6.Location = new System.Drawing.Point(3, 144);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 37);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Normal";
             // 
             // BMICalculatorForm
             // 
@@ -513,15 +529,15 @@
         private System.Windows.Forms.Label WeightUnit;
         private System.Windows.Forms.TextBox BMITextBox;
         private System.Windows.Forms.TableLayoutPanel BMIScaleTableLayoutPanel;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label ObeseLabel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label NormalLabel2;
+        private System.Windows.Forms.Label OverweightLabel2;
+        private System.Windows.Forms.Label UnderweightLabel2;
+        private System.Windows.Forms.Label ObeseLabel2;
+        private System.Windows.Forms.Label OverweightLabel1;
+        private System.Windows.Forms.Label NormalLabel1;
+        private System.Windows.Forms.Label UnderweightLabel1;
         private System.Windows.Forms.Label label1;
     }
 }

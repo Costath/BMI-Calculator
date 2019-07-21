@@ -1,4 +1,17 @@
-﻿namespace BMICalculator
+﻿/*
+ * Author's name: Thales Costa
+ * Author's student ID: 301035028
+ * Professor: Tom Tsiliopoulos
+ * Course: Programming 2
+ * Date last modified: July 20th, 2019
+ * 
+ * Description: This software implements a BMI (Body Mass Index) Calculator. User selects the desired 
+ * measurement system between Imperial and Metric, and inputs height and weight values. The BMI value 
+ * is calculated and displayed in a specific box, and a BMI scale is shown, highlighted according to 
+ * the calculated BMI value.
+ * The user can perform another calculation by simply clicking on height and weight text boxes.
+ */
+namespace BMICalculator
 {
     partial class BMICalculatorForm
     {
@@ -48,8 +61,8 @@
             this.HeightTextBox = new System.Windows.Forms.TextBox();
             this.WeightTextBox = new System.Windows.Forms.TextBox();
             this.CalculateBMIButton = new System.Windows.Forms.Button();
-            this.HeightUnit = new System.Windows.Forms.Label();
-            this.WeightUnit = new System.Windows.Forms.Label();
+            this.HeightUnitLabel = new System.Windows.Forms.Label();
+            this.WeightUnitLabel = new System.Windows.Forms.Label();
             this.BMITextBox = new System.Windows.Forms.TextBox();
             this.BMIScaleTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ObeseLabel1 = new System.Windows.Forms.Label();
@@ -62,6 +75,7 @@
             this.NormalLabel1 = new System.Windows.Forms.Label();
             this.UnderweightLabel1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.ButtonsTableLayoutPanel.SuspendLayout();
             this.BMIScaleTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -289,23 +303,23 @@
             this.CalculateBMIButton.UseVisualStyleBackColor = true;
             this.CalculateBMIButton.Click += new System.EventHandler(this.CalculateBMIButton_Click);
             // 
-            // HeightUnit
+            // HeightUnitLabel
             // 
-            this.HeightUnit.AutoSize = true;
-            this.HeightUnit.Location = new System.Drawing.Point(259, 65);
-            this.HeightUnit.Name = "HeightUnit";
-            this.HeightUnit.Size = new System.Drawing.Size(35, 31);
-            this.HeightUnit.TabIndex = 10;
-            this.HeightUnit.Text = "in";
+            this.HeightUnitLabel.AutoSize = true;
+            this.HeightUnitLabel.Location = new System.Drawing.Point(259, 65);
+            this.HeightUnitLabel.Name = "HeightUnitLabel";
+            this.HeightUnitLabel.Size = new System.Drawing.Size(35, 31);
+            this.HeightUnitLabel.TabIndex = 10;
+            this.HeightUnitLabel.Text = "in";
             // 
-            // WeightUnit
+            // WeightUnitLabel
             // 
-            this.WeightUnit.AutoSize = true;
-            this.WeightUnit.Location = new System.Drawing.Point(261, 98);
-            this.WeightUnit.Name = "WeightUnit";
-            this.WeightUnit.Size = new System.Drawing.Size(35, 31);
-            this.WeightUnit.TabIndex = 11;
-            this.WeightUnit.Text = "lb";
+            this.WeightUnitLabel.AutoSize = true;
+            this.WeightUnitLabel.Location = new System.Drawing.Point(261, 98);
+            this.WeightUnitLabel.Name = "WeightUnitLabel";
+            this.WeightUnitLabel.Size = new System.Drawing.Size(35, 31);
+            this.WeightUnitLabel.TabIndex = 11;
+            this.WeightUnitLabel.Text = "lb";
             // 
             // BMITextBox
             // 
@@ -471,15 +485,26 @@
             this.label1.Text = "BMI Scale";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(205, 187);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(95, 38);
+            this.ResetButton.TabIndex = 14;
+            this.ResetButton.Text = "Reset";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // BMICalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.BMIScaleTableLayoutPanel);
             this.Controls.Add(this.BMITextBox);
-            this.Controls.Add(this.WeightUnit);
-            this.Controls.Add(this.HeightUnit);
+            this.Controls.Add(this.WeightUnitLabel);
+            this.Controls.Add(this.HeightUnitLabel);
             this.Controls.Add(this.CalculateBMIButton);
             this.Controls.Add(this.WeightTextBox);
             this.Controls.Add(this.HeightTextBox);
@@ -525,8 +550,8 @@
         private System.Windows.Forms.Button SevenButton;
         private System.Windows.Forms.Button DecimalButton;
         private System.Windows.Forms.Button DelButton;
-        private System.Windows.Forms.Label HeightUnit;
-        private System.Windows.Forms.Label WeightUnit;
+        private System.Windows.Forms.Label HeightUnitLabel;
+        private System.Windows.Forms.Label WeightUnitLabel;
         private System.Windows.Forms.TextBox BMITextBox;
         private System.Windows.Forms.TableLayoutPanel BMIScaleTableLayoutPanel;
         private System.Windows.Forms.Label ObeseLabel1;
@@ -539,6 +564,7 @@
         private System.Windows.Forms.Label NormalLabel1;
         private System.Windows.Forms.Label UnderweightLabel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ResetButton;
     }
 }
 

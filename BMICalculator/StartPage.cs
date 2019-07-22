@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Background picture source: https://livewellcolorado.org/healthy-living/360-gut-check/bmi-calculator/
+
 namespace BMICalculator
 {
     public partial class StartPage : Form

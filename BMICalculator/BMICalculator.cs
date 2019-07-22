@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,8 @@ namespace BMICalculator
         // holds the actual TextBox selected for input (HeightTextBox or WeightTextBox)
         private TextBox _selectedTextBox;
         // decimalPresent controls the presence of a '.' in the BMITextBox.Text
-        private bool _decimalPresent = false;
+        private bool _heightTextBoxHasDecimal = false;
+        private bool _weightTextBoxHasDecimal = false;
         /// <summary>
         /// Resets the color of each label in BMIScaleTableLayoutPanel to system default
         /// </summary>
@@ -161,17 +163,33 @@ namespace BMICalculator
         /// <param name="e"></param>
         private void DecimalButton_Click(object sender, EventArgs e)
         {
-            if (_selectedTextBox.Text != "" && _decimalPresent == false)
+            // Checks which TextBox is selected (HeightTextBox or WeightTextBox)
+            if (_selectedTextBox.Name == "HeightTextBox")
             {
-                _selectedTextBox.Text += ".";
-                _decimalPresent = true;
+                if (_selectedTextBox.Text != "" && _heightTextBoxHasDecimal == false)
+                {
+                    _selectedTextBox.Text += ".";
+                    _heightTextBoxHasDecimal = true;
+                }
+                else if (_selectedTextBox.Text == "")
+                {
+                    _selectedTextBox.Text += "0.";
+                    _heightTextBoxHasDecimal = true;
+                }
             }
-            else if (_selectedTextBox.Text == "")
+            else if (_selectedTextBox.Name == "WeightTextBox")
             {
-                _selectedTextBox.Text += "0.";
-                _decimalPresent = true;
+                if (_selectedTextBox.Text != "" && _weightTextBoxHasDecimal == false)
+                {
+                    _selectedTextBox.Text += ".";
+                    _weightTextBoxHasDecimal = true;
+                }
+                else if (_selectedTextBox.Text == "")
+                {
+                    _selectedTextBox.Text += "0.";
+                    _weightTextBoxHasDecimal = true;
+                }
             }
-            
         }
         /// <summary>
         /// Deletes the last character of _selectedTextBox.Text if there is any
@@ -185,9 +203,16 @@ namespace BMICalculator
                 // Sets _decimalPresent to FALSE if the deleted character was a "."
                 if (_selectedTextBox.Text.Substring(_selectedTextBox.Text.Length - 1) == ".")
                 {
-                    _decimalPresent = false;
+                    if (_selectedTextBox.Name == "HeightTextBox")
+                    {
+                        _heightTextBoxHasDecimal = false;
+                    }
+                    else if (_selectedTextBox.Name == "WeightTextBox")
+                    {
+                        _weightTextBoxHasDecimal = false;
+                    }
+                    
                 }
-
                 _selectedTextBox.Text = _selectedTextBox.Text.Substring(0, _selectedTextBox.Text.Length - 1);
                 // Sets _selectedTextBox.Text to empty string if the remaing string is "0"
                 if (_selectedTextBox.Text == "0")
@@ -207,6 +232,25 @@ namespace BMICalculator
             
         }
         /// <summary>
+        /// Clears the form to initial status when ResetButton is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            HeightTextBox.Text = "";
+            WeightTextBox.Text = "";
+            _heightTextBoxHasDecimal = false;
+            _weightTextBoxHasDecimal = false;
+            _selectedTextBox = HeightTextBox;
+            BMIScaleTableLayoutPanel.Visible = false;
+            ButtonsTableLayoutPanel.Visible = true;
+            MetricRadioButton.Checked = false;
+            ImperialRadioButton.Checked = true;
+            BMITextBox.Font = new Font("Microsoft Sans Serif", 20);
+            BMITextBox.Text = "";
+        }
+        /// <summary>
         /// Calculates the BMI value, writes the result in BMITextBox.Text and chebge the color of the BMI Scale accordingly
         /// </summary>
         /// <param name="sender"></param>
@@ -219,6 +263,10 @@ namespace BMICalculator
             BMITextBox.Font = new Font("Microsoft Sans Serif", 20);
             try
             {
+                if (double.Parse(WeightTextBox.Text) == 0 || double.Parse(HeightTextBox.Text) == 0)
+                {
+                    throw new FormatException();
+                }
                 // BMI value calculation
                 BMI = double.Parse(WeightTextBox.Text) / Math.Pow(double.Parse(HeightTextBox.Text), 2.0);
                 // Adjusts the calculated BMI value if Imperial units are chosen
@@ -255,7 +303,6 @@ namespace BMICalculator
                 ButtonsTableLayoutPanel.Visible = false;
                 // Shows BMIScaleTableLayoutPanel
                 BMIScaleTableLayoutPanel.Visible = true;
-
             }// Handles FormatException when WeightTextBox.Text or HeightTextBox.Text is empty string and the function tries to parse it
             catch (FormatException)
             {
@@ -267,7 +314,6 @@ namespace BMICalculator
 
                 throw;
             }
-            
         }
         /// <summary>
         /// When HeightTextBox is selected, sets _selectedTextBox to HeightTextBox, hides BMIScaleTableLayoutPanel and shows ButtonsTableLayoutPanel to receive next input value
@@ -313,7 +359,7 @@ namespace BMICalculator
                 {
                     HeightTextBox.Text = "";
                     WeightTextBox.Text = "";
-                    _decimalPresent = false;
+                    _heightTextBoxHasDecimal = false;
                 }
                 catch (Exception)
                 {
@@ -343,7 +389,7 @@ namespace BMICalculator
                 {
                     HeightTextBox.Text = "";
                     WeightTextBox.Text = "";
-                    _decimalPresent = false;
+                    _heightTextBoxHasDecimal = false;
                 }
                 catch (Exception)
                 {
@@ -353,22 +399,13 @@ namespace BMICalculator
             }
         }
         /// <summary>
-        /// Clears the form to initial status when ResetButton is clicked
+        /// Closes the application when the close X is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ResetButton_Click(object sender, EventArgs e)
+        private void BMICalculatorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            HeightTextBox.Text = "";
-            WeightTextBox.Text = "";
-            _decimalPresent = false;
-            _selectedTextBox = HeightTextBox;
-            BMIScaleTableLayoutPanel.Visible = false;
-            ButtonsTableLayoutPanel.Visible = true;
-            MetricRadioButton.Checked = false;
-            ImperialRadioButton.Checked = true;
-            BMITextBox.Font = new Font("Microsoft Sans Serif", 20);
-            BMITextBox.Text = "";
+            Application.Exit();
         }
     }
 }

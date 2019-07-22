@@ -22,6 +22,8 @@ namespace BMICalculator
 {
     static class Program
     {
+        public static BMICalculatorForm BMIForm;
+        public static StartPage startPage;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -30,7 +32,11 @@ namespace BMICalculator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BMICalculatorForm());
+
+            BMIForm = new BMICalculatorForm();
+            startPage = new StartPage();
+
+            Application.Run(startPage);
         }
     }
 }
